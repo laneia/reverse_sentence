@@ -2,15 +2,10 @@
 # Space complexity: O(1)
 
 def reverse_sentence(my_sentence)
-  if my_sentence == nil
-    return nil
-  end
-
-  i = 0
-  k = 0
   length = my_sentence.length
-  k = length - 1
-  word_reverse(my_sentence, i, k)
+  return nil if my_sentence == nil || length < 0
+
+  reverse(my_sentence, 0, length - 1)
   reverse_words(my_sentence)
   return
 end
@@ -34,7 +29,7 @@ def reverse_words(my_words)
   return my_words
 end
 
-def word_reverse(string, start_index, end_index)
+def reverse(string, start_index, end_index)
   while (start_index < end_index)
     temp = string[start_index]
     string[start_index] = string[end_index]
